@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+img {
+  max-width: 100%;
+  /* 画像の下にできる隙間を削除 */
+  vertical-align: bottom;
+}
+ul {
+  /* リストの先頭にマーカーを表示しない */
+  list-style: none;
+}
+
+.content {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 100px auto;
+}
+.title {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 80px;
+}
+.flex {
+  display: flex;
+}
+.flex .left {
+  width: 40%;
+}
+/*
+align-content: space-between;
+均等配置にして上下を揃える
+*/
+.flex .right {
+  width: 60%;
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+/*
+「width: calc(100%/3);」で横幅を3等分した後、
+「padding-left: 12px;」で左側にパディングを設定
+*/
+.flex .right li {
+  width: calc(100%/3);
+  padding-left: 12px;
+  
+  
+ 
+}
+
+/*SP*/
+@media screen and (max-width: 900px) {
+  /*
+  左側の画像と右側の画像を縦に並べる
+  */
+  .flex {
+    flex-direction: column;
+  }
+  .flex .left {
+    width: 100%;
+    padding-bottom: 12px;
+  }
+  .flex .right {
+    width: 100%;
+  }
+  /*
+  「width: 50%;」で右側の画像は2列に並べる
+  */
+  .flex .right li {
+    width: 50%;
+    padding: 0 0 12px 0;
+  }
+  /*
+  奇数番目の画像は右にパディングを設定
+  */
+  .flex .right li:nth-child(odd) {
+    padding-right: 6px;
+  }
+  /*
+  偶数番目の画像は左にパディングを設定
+  */
+  .flex .right li:nth-child(even) {
+    padding-left: 6px;
+  }
+}
+
